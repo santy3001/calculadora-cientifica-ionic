@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true" class="fondo-calculadora">
+  <div class="contenedor">
+
+    <!-- Modo grados/radianes (necesario para sin/cos/tan) -->
+    <div class="barra-superior">
+      <button class="chip-modo" (click)="alternarModoAngulo()">
+        {{ modoGrados() ? 'DEG' : 'RAD' }}
+      </button>
+    </div>
+
+    <!-- Pantalla -->
+    <div class="pantalla">
+      <div class="linea-historial">{{ ultimoResultado() }}</div>
+      <div class="linea-error" *ngIf="error()">{{ error() }}</div>
+      <div class="linea-principal">{{ pantalla }}</div>
+    </div>
+
+    <!-- Teclado -->
+    <div class="teclado">
+
+      <!-- Fila funciones científicas 1 -->
+      <button class="tecla funcion" (click)="ingresarFuncion('sin(')">sin</button>
+      <button class="tecla funcion" (click)="ingresarFuncion('cos(')">cos</button>
+      <button class="tecla funcion" (click)="ingresarFuncion('tan(')">tan</button>
+      <button class="tecla funcion" (click)="borradorDeTodo()">AC</button>
+
+      <!-- Fila funciones científicas 2 -->
+      <button class="tecla funcion" (click)="ingresarFuncion('log(')">log</button>
+      <button class="tecla funcion" (click)="ingresarFuncion('ln(')">ln</button>
+      <button class="tecla funcion" (click)="ingresarFuncion('√(')">√</button>
+      <button class="tecla funcion" (click)="aplicarCuadrado()">x²</button>
+
+      <!-- Fila funciones científicas 3 -->
+      <button class="tecla funcion" (click)="ingresarParentesis('(')">(</button>
+      <button class="tecla funcion" (click)="ingresarParentesis(')')">)</button>
+      <button class="tecla funcion" (click)="ingresarConstante('π')">π</button>
+      <button class="tecla funcion" (click)="ingresarConstante('e')">e</button>
+
+      <!-- Fila funciones científicas 4 -->
+      <button class="tecla funcion" (click)="ingresarOperador('^')">xʸ</button>
+      <button class="tecla funcion" (click)="aplicarPorcentaje()">%</button>
+      <button class="tecla funcion" (click)="alternarSigno()">±</button>
+      <button class="tecla funcion" (click)="borrarUltimo()">⌫</button>
+
+      <!-- Teclado numérico -->
+      <button class="tecla numero" (click)="ingresarDigito('7')">7</button>
+      <button class="tecla numero" (click)="ingresarDigito('8')">8</button>
+      <button class="tecla numero" (click)="ingresarDigito('9')">9</button>
+      <button class="tecla operador" (click)="ingresarOperador('÷')">÷</button>
+
+      <button class="tecla numero" (click)="ingresarDigito('4')">4</button>
+      <button class="tecla numero" (click)="ingresarDigito('5')">5</button>
+      <button class="tecla numero" (click)="ingresarDigito('6')">6</button>
+      <button class="tecla operador" (click)="ingresarOperador('×')">×</button>
+
+      <button class="tecla numero" (click)="ingresarDigito('1')">1</button>
+      <button class="tecla numero" (click)="ingresarDigito('2')">2</button>
+      <button class="tecla numero" (click)="ingresarDigito('3')">3</button>
+      <button class="tecla operador" (click)="ingresarOperador('-')">−</button>
+
+      <button class="tecla numero cero" (click)="ingresarDigito('0')">0</button>
+      <button class="tecla numero" (click)="ingresarPunto()">.</button>
+      <button class="tecla operador" (click)="ingresarOperador('+')">+</button>
+      <button class="tecla igual" (click)="calcular()">=</button>
+
+    </div>
+  </div>
+</ion-content>

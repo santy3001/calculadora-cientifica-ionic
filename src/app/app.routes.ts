@@ -6,8 +6,13 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
   {
+    path: 'calculadora',
+    loadComponent: () =>
+      import('./calculadora/calculadora.page').then((m) => m.CalculadoraPage),
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'calculadora',
     pathMatch: 'full',
   },
 ];

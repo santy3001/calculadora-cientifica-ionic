@@ -1,0 +1,115 @@
+.fondo-calculadora {
+  --background: #000000;
+}
+
+.contenedor {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.barra-superior {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 4px 8px;
+
+  .chip-modo {
+    background: #1c1c1e;
+    color: #a5a5a5;
+    border: 1px solid #3a3a3c;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}
+
+.pantalla {
+  padding: 10px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  min-height: 100px;
+
+  .linea-historial {
+    color: #6e6e73;
+    font-size: 0.9rem;
+    text-align: right;
+    min-height: 1.1rem;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  .linea-error {
+    color: #ff453a;
+    font-size: 0.85rem;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .linea-principal {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: right;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.tecla {
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: filter 0.1s ease, transform 0.06s ease;
+
+  &:active {
+    transform: scale(0.92);
+    filter: brightness(1.25);
+  }
+}
+
+.tecla.numero {
+  background: #333333;
+  color: #ffffff;
+}
+
+.tecla.funcion {
+  background: #a5a5a5;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.tecla.operador {
+  background: #ff9500;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.tecla.igual {
+  background: #ff9500;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
